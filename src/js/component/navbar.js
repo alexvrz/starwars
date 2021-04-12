@@ -1,16 +1,33 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+import { Image, DropdownButton, Dropdown } from "react-bootstrap";
 
 export const Navbar = () => {
+	const { store, actions } = useContext(Context);
 	return (
 		<nav className="navbar navbar-light bg-light mb-3">
 			<Link to="/">
-				<span className="navbar-brand mb-0 h1">React Boilerplate</span>
+				<Image
+					src="https://logodownload.org/wp-content/uploads/2015/12/star-wars-logo-3-1.png"
+					// width="60"
+					height="40"
+					alt="Star Wars"
+				/>
 			</Link>
 			<div className="ml-auto">
-				<Link to="/demo">
-					<button className="btn btn-primary">Check the Context in action</button>
-				</Link>
+				<DropdownButton id="dropdown-basic-button" title={`Favoritos ${store.favorites.length}`}>
+					{store.favorites.map((item, index) => {
+						return (
+							<Dropdown.Item key={index} href="#/action-1">
+								{item}
+								<span onClick={() => handDeleteTask()}>
+									<i className="fas fa-trash-alt" />
+								</span>
+							</Dropdown.Item>
+						);
+					})}
+				</DropdownButton>
 			</div>
 		</nav>
 	);
