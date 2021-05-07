@@ -38,6 +38,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 				setStore({ favorites: [...store.favorites, name] });
 			},
+			DeleteFav: name => {
+				const store = getStore();
+				setStore({ favorites: [...store.favorites.splice(name, 1)] }); //obtiene el getstore de favorites y le hace un splice, o sea borrar
+			},
 
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {

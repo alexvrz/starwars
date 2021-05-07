@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import { Context } from "../store/appContext";
+import { Button, Jumbotron } from "react-bootstrap";
 
 import "../../styles/demo.scss";
 
@@ -10,34 +11,19 @@ export const Demo = () => {
 
 	return (
 		<div className="container">
-			<ul className="list-group">
-				{store.demo.map((item, index) => {
-					return (
-						<li
-							key={index}
-							className="list-group-item d-flex justify-content-between"
-							style={{ background: item.background }}>
-							<Link to={"/single/" + index}>
-								<span>Link to: {item.title}</span>
-							</Link>
-							{// Conditional render example
-							// Check to see if the background is orange, if so, display the message
-							item.background === "orange" ? (
-								<p style={{ color: item.initial }}>
-									Check store/flux.js scroll to the actions to see the code
-								</p>
-							) : null}
-							<button className="btn btn-success" onClick={() => actions.changeColor(index, "orange")}>
-								Change Color
-							</button>
-						</li>
-					);
-				})}
-			</ul>
-			<br />
-			<Link to="/">
-				<button className="btn btn-primary">Back home</button>
-			</Link>
+			<Jumbotron>
+				<h1>Hello, world!</h1>
+				<p>
+					This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
+					featured content or information.
+				</p>
+				<p>
+					<br />
+					<Link to="/">
+						<button className="btn btn-primary">Back home</button>
+					</Link>
+				</p>
+			</Jumbotron>
 		</div>
 	);
 };

@@ -21,8 +21,8 @@ export const Navbar = () => {
 						return (
 							<Dropdown.Item key={index} href="#/action-1">
 								{item}
-								<span onClick={() => handDeleteTask()}>
-									<i className="fas fa-trash-alt" />
+								<span onClick={() => actions.DeleteFav(item.name)}>
+									<i className="fas fa-trash-alt float right" />
 								</span>
 							</Dropdown.Item>
 						);
