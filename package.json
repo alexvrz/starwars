@@ -88,6 +88,7 @@
 		"react-polyfills": "0.0.1",
 		"react-router-dom": "^5.2.0",
 		"react-scroll": "^1.8.2",
+		"react-scroll-section": "^3.0.2",
 		"react-search-autocomplete": "^5.2.2"
 	}
 }

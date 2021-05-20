@@ -2,6 +2,9 @@ import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import { Image, DropdownButton, Dropdown } from "react-bootstrap";
+import { Favorites } from "./favorites.js";
+import * as Scroll from "react-scroll";
+import { ScrollingProvider, Section } from "react-scroll-section";
 
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
@@ -15,20 +18,7 @@ export const Navbar = () => {
 					alt="Star Wars"
 				/>
 			</Link>
-			<div className="ml-auto">
-				<DropdownButton id="dropdown-basic-button" title={`Favoritos ${store.favorites.length}`}>
-					{store.favorites.map((item, index) => {
-						return (
-							<Dropdown.Item key={index} href="#/action-1">
-								{item}
-								<span onClick={() => actions.DeleteFav(item.name)}>
-									<i className="fas fa-trash-alt float right" />
-								</span>
-							</Dropdown.Item>
-						);
-					})}
-				</DropdownButton>
-			</div>
+			<Favorites />
 		</nav>
 	);
 };
