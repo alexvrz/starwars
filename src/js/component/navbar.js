@@ -3,8 +3,6 @@ import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import { Image, DropdownButton, Dropdown } from "react-bootstrap";
 import { Favorites } from "./favorites.js";
-import * as Scroll from "react-scroll";
-import { ScrollingProvider, Section } from "react-scroll-section";
 
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
